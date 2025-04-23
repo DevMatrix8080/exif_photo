@@ -1,0 +1,138 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --text-color: #2c3e50;
+    --light-text: #ecf0f1;
+    --background-color: #f5f6fa;
+    --card-background: #ffffff;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+.upload-section {
+    margin-bottom: 3rem;
+}
+
+.upload-area {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: 3rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    border: 2px dashed var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.upload-area i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.upload-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--light-text);
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.exif-container {
+    display: none;
+}
+
+.exif-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.exif-section {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+}
+
+.exif-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+}
+
+.exif-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.exif-item:last-child {
+    border-bottom: none;
+}
+
+.label {
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.value {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .upload-area {
+        padding: 2rem;
+    }
+
+    .exif-grid {
+        grid-template-columns: 1fr;
+    }
+} 

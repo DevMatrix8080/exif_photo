@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXIF Photo Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>EXIF Photo Viewer</h1>
+            <p class="subtitle">Analizza i dettagli delle tue foto</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-area" id="dropZone">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Trascina qui la tua foto o</p>
+                    <label for="fileInput" class="upload-button">Seleziona File</label>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                </div>
+            </div>
+
+            <div class="exif-container" id="exifContainer">
+                <div class="exif-grid">
+                    <div class="exif-section">
+                        <h2>Informazioni Base</h2>
+                        <div class="exif-item">
+                            <span class="label">Nome File</span>
+                            <span class="value" id="fileName">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Dimensioni</span>
+                            <span class="value" id="fileSize">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Tipo MIME</span>
+                            <span class="value" id="mimeType">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Risoluzione</span>
+                            <span class="value" id="resolution">-</span>
+                        </div>
+                    </div>
+
+                    <div class="exif-section">
+                        <h2>Dati Fotografici</h2>
+                        <div class="exif-item">
+                            <span class="label">Fotocamera</span>
+                            <span class="value" id="camera">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Obiettivo</span>
+                            <span class="value" id="lens">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Distanza Focale</span>
+                            <span class="value" id="focalLength">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Diaframma</span>
+                            <span class="value" id="aperture">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Tempo di Esposizione</span>
+                            <span class="value" id="exposure">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">ISO</span>
+                            <span class="value" id="iso">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Compensazione Esposizione</span>
+                            <span class="value" id="exposureCompensation">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Modalità Esposizione</span>
+                            <span class="value" id="exposureMode">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Modalità Misurazione</span>
+                            <span class="value" id="meteringMode">-</span>
+                        </div>
+                    </div>
+
+                    <div class="exif-section">
+                        <h2>Impostazioni Fotografiche</h2>
+                        <div class="exif-item">
+                            <span class="label">Bilanciamento del Bianco</span>
+                            <span class="value" id="whiteBalance">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Flash</span>
+                            <span class="value" id="flash">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Stabilizzazione</span>
+                            <span class="value" id="imageStabilization">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Formato Immagine</span>
+                            <span class="value" id="imageFormat">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Qualità Immagine</span>
+                            <span class="value" id="imageQuality">-</span>
+                        </div>
+                    </div>
+
+                    <div class="exif-section">
+                        <h2>Dati GPS</h2>
+                        <div class="exif-item">
+                            <span class="label">Latitudine</span>
+                            <span class="value" id="latitude">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Longitudine</span>
+                            <span class="value" id="longitude">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Altitudine</span>
+                            <span class="value" id="altitude">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Direzione</span>
+                            <span class="value" id="gpsDirection">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Velocità</span>
+                            <span class="value" id="gpsSpeed">-</span>
+                        </div>
+                    </div>
+
+                    <div class="exif-section">
+                        <h2>Dati Temporali</h2>
+                        <div class="exif-item">
+                            <span class="label">Data Scatto</span>
+                            <span class="value" id="dateTaken">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Ora Scatto</span>
+                            <span class="value" id="timeTaken">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Fuso Orario</span>
+                            <span class="value" id="timezone">-</span>
+                        </div>
+                    </div>
+
+                    <div class="exif-section">
+                        <h2>Dati Avanzati</h2>
+                        <div class="exif-item">
+                            <span class="label">Software</span>
+                            <span class="value" id="software">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Copyright</span>
+                            <span class="value" id="copyright">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Descrizione</span>
+                            <span class="value" id="description">-</span>
+                        </div>
+                        <div class="exif-item">
+                            <span class="label">Parole Chiave</span>
+                            <span class="value" id="keywords">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
